@@ -52,11 +52,13 @@
         }: {
           packages =
             let
-              mkSnowpark = src: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src; };
+              mkSnowpark = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
+
+              snowpark-for-snowcli-1x = mkSnowpark { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
+              snowpark-for-snowcli-2x = mkSnowpark { src = inputs.snowflake-connector-python-2x; version = "3.6.0"; };
             in
             {
-              snowpark-for-snowcli-1x = mkSnowpark inputs.snowflake-connector-python-1x;
-              snowpark-for-snowcli-2x = mkSnowpark inputs.snowflake-connector-python-2x;
+              inherit snowpark-for-snowcli-1x snowpark-for-snowcli-2x;
             };
           /* Development configuration */
           treefmt = {
