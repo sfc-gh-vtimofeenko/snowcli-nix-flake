@@ -6,6 +6,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs.follows = "nixpkgs-stable";
 
+    /* Dependencies after this point are flake-development only, so feel free to stub them out */
     devshell = {
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -39,6 +40,7 @@
           # , system
         , ...
         }: {
+          /* Development configuration */
           treefmt = {
             programs = {
               nixpkgs-fmt.enable = true;
