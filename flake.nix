@@ -87,15 +87,31 @@
           treefmt = {
             programs = {
               nixpkgs-fmt.enable = true;
-              deadnix.enable = true;
+              deadnix = {
+                enable = true;
+                no-lambda-arg = true;
+                no-lambda-pattern-names = true;
+                no-underscore = true;
+              };
               statix.enable = true;
             };
             projectRootFile = "flake.nix";
           };
 
           pre-commit.settings = {
-            hooks.treefmt.enable = true;
-            settings.treefmt.package = config.treefmt.build.wrapper;
+            hooks = {
+              treefmt.enable = true;
+              deadnix.enable = true;
+              statix.enable = true;
+            };
+            settings = {
+              deadnix.edit = true;
+              statix = {
+                ignore = [ ".direnv/" ];
+                format = "stderr";
+              };
+              treefmt.package = config.treefmt.build.wrapper;
+            };
           };
 
           devShells.pre-commit = config.pre-commit.devShell;
