@@ -6,6 +6,15 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs.follows = "nixpkgs-stable";
 
+    snowflake-connector-python-1x = {
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.2.0";
+      flake = false;
+    };
+    snowflake-connector-python-2x = {
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.6.0";
+      flake = false;
+    };
+
     /* Dependencies after this point are flake-development only, so feel free to stub them out */
     devshell = {
       url = "github:numtide/devshell";
@@ -34,12 +43,21 @@
 
       perSystem =
         { config
+        , pkgs
           /* These inputs are unused in the template, but might be useful later */
           # , self'
           # , inputs'
           # , system
         , ...
         }: {
+          packages =
+            let
+              mkSnowpark = src: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src; };
+            in
+            {
+              snowpark-for-snowcli-1x = mkSnowpark inputs.snowflake-connector-python-1x;
+              snowpark-for-snowcli-2x = mkSnowpark inputs.snowflake-connector-python-2x;
+            };
           /* Development configuration */
           treefmt = {
             programs = {
