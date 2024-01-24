@@ -6,6 +6,14 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs.follows = "nixpkgs-stable";
 
+    snowcli-src-1x = {
+      url = "github:Snowflake-Labs/snowcli?ref=v1.2.4"; # Pins to last stable version tag by hand
+      flake = false;
+    };
+    snowcli-src-2x = {
+      url = "github:Snowflake-Labs/snowcli";
+      flake = false;
+    };
     snowflake-connector-python-1x = {
       url = "github:snowflakedb/snowflake-connector-python?ref=v3.2.0";
       flake = false;
@@ -36,6 +44,8 @@
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
       imports = [
+        inputs.flake-parts.flakeModules.easyOverlay
+
         inputs.devshell.flakeModule
         inputs.pre-commit-hooks-nix.flakeModule
         inputs.treefmt-nix.flakeModule
@@ -53,13 +63,26 @@
           packages =
             let
               mkSnowpark = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
+              mkSnowcli = { src, version, snowflakeConnectorPkg }: pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
               snowpark-for-snowcli-1x = mkSnowpark { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
               snowpark-for-snowcli-2x = mkSnowpark { src = inputs.snowflake-connector-python-2x; version = "3.6.0"; };
             in
             {
               inherit snowpark-for-snowcli-1x snowpark-for-snowcli-2x;
+
+              snowcli-1x = mkSnowcli {
+                src = inputs.snowcli-src-1x;
+                version = "1.2.4";
+                snowflakeConnectorPkg = snowpark-for-snowcli-1x;
+              };
+              snowcli-2x = mkSnowcli {
+                src = inputs.snowcli-src-2x;
+                version = "2.0.0-dev";
+                snowflakeConnectorPkg = snowpark-for-snowcli-2x;
+              };
             };
+          overlayAttrs = config.packages;
           /* Development configuration */
           treefmt = {
             programs = {

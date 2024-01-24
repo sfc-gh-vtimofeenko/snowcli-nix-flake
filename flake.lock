@@ -197,9 +197,44 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
+        "snowcli-src-1x": "snowcli-src-1x",
+        "snowcli-src-2x": "snowcli-src-2x",
         "snowflake-connector-python-1x": "snowflake-connector-python-1x",
         "snowflake-connector-python-2x": "snowflake-connector-python-2x",
         "treefmt-nix": "treefmt-nix"
+      }
+    },
+    "snowcli-src-1x": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704728099,
+        "narHash": "sha256-ahUPDcf1Ql97IQSgalAUIZo2U2MiKxNPn0pKvDDQIu0=",
+        "owner": "Snowflake-Labs",
+        "repo": "snowcli",
+        "rev": "2f606973ceeaf5a689d9449bfc12cf43e0005a45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Snowflake-Labs",
+        "ref": "v1.2.4",
+        "repo": "snowcli",
+        "type": "github"
+      }
+    },
+    "snowcli-src-2x": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706113592,
+        "narHash": "sha256-B7kwbE9KRNcw3ZxX4ejKpuSqBuESw8l0Y4cWqvQwNC0=",
+        "owner": "Snowflake-Labs",
+        "repo": "snowcli",
+        "rev": "9b58d66e8138e12f06d1341a5407a8051ab1737c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Snowflake-Labs",
+        "repo": "snowcli",
+        "type": "github"
       }
     },
     "snowflake-connector-python-1x": {
