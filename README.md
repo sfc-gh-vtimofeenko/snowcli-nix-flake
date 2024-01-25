@@ -12,7 +12,7 @@ Options to run snowcli from this flake:
     2. Add `inputs.<snowcli_input_name>.packages.<architecture>.snowcli-2x` to your `environment.systemPackages`
 
        *- or -*
-       
+
        add `inputs.<snowcli_input_name>.overlays.default` to your overlays list and add `pkgs.snowcli-2x` to `environment.systemPackages`
 * Add and configure `home-manager` module by importing `inputs.<snowcli_input_name>.homeManagerModules.default` and [configuring the module](#home-manager-module-config)
 
@@ -20,9 +20,9 @@ Options to run snowcli from this flake:
 
 Provided home manager module ([src](./modules/homeManager/default.nix)) allows configuring snowcli when it's installed in home-manager environment:
 
-<!-- `> nix run .#renderHMDoc` -->
+<!-- `> nix run .#renderHMDoc | sed 's;^##;###;'` -->
 <!-- BEGIN mdsh -->
-## programs\.snowcli\.enable
+### programs\.snowcli\.enable
 
 Whether to enable Snowcli\.
 
@@ -43,7 +43,7 @@ boolean
 
 
 
-## programs\.snowcli\.package
+### programs\.snowcli\.package
 
 
 
@@ -61,7 +61,7 @@ package
 
 
 
-## programs\.snowcli\.settings
+### programs\.snowcli\.settings
 
 
 
