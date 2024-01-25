@@ -111,7 +111,7 @@
                 mdsh.enable = true;
                 mdsh.entry =
                   let
-                    nixFlakeWrapper = pkgs.writeShellScriptBin "nix" "${pkgs.lib.getExe pkgs.nixFlakes} --extra-experimental-features nix-command --extra-experimental-features flakes --option sandbox false $@";
+                    nixFlakeWrapper = pkgs.writeShellScriptBin "nix" "${pkgs.lib.getExe pkgs.nixFlakes} --extra-experimental-features nix-command --extra-experimental-features flakes $@";
                   in
                   pkgs.lib.mkForce (toString
                     (pkgs.writeShellScript "precommit-mdsh" ''
