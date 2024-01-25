@@ -27,6 +27,6 @@ jobs:
     - uses: DeterminateSystems/nix-installer-action@main
     - uses: DeterminateSystems/magic-nix-cache-action@main
     - name: "Build Snowcli {{ matrix.snowcliVer }}"
-      run: nix build .#snowcli-{{ matrix.snowcliVer }}
+      run: nix build .#snowcli-${{ matrix.snowcliVer }}
     - name: "Run sample Snowcli command"
-      run: nix run .#snowcli-{{ matrix.snowcliVer }} -- --version
+      run: nix run .#snowcli-${{ matrix.snowcliVer }} -- --version
