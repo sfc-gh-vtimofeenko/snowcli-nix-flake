@@ -35,7 +35,7 @@ in
       description = lib.mdDoc ''
         Snowcli configuration.
 
-        *NOTE*: `connection.dev` is used by default.
+        *NOTE*: `connection.dev` is used as the default connection by Snowcli.
 
         See [doc](https://github.com/Snowflake-Labs/snowcli) for more information.
       '';

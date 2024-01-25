@@ -88,6 +88,7 @@
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
             /* Development configuration */
+            apps.renderHMDoc = import ./apps/renderHMDocs { inherit self pkgs; };
             treefmt = {
               programs = {
                 nixpkgs-fmt.enable = true;
@@ -107,6 +108,7 @@
                 treefmt.enable = true;
                 deadnix.enable = true;
                 statix.enable = true;
+                mdsh.enable = true;
               };
               settings = {
                 deadnix.edit = true;
@@ -125,6 +127,7 @@
               packages = [
                 config.pre-commit.settings.package
                 config.treefmt.build.wrapper
+                pkgs.mdsh
               ];
             };
           };
