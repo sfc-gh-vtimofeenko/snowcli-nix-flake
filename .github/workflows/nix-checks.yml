@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  "Nix flake check":
+  nix-flake-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
     - name: "Run nix flake check"
       run: nix flake check
 
-  "Build package":
+  build-package:
     strategy:
       matrix:
         snowcliVer: ["1x", "2x"]
