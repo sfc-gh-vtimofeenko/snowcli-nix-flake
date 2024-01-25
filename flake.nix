@@ -109,6 +109,19 @@
                 deadnix.enable = true;
                 statix.enable = true;
                 mdsh.enable = true;
+                mdsh.entry =
+                  let
+                    nixFlakeWrapper = pkgs.writeShellScriptBin "nix" "${pkgs.lib.getExe pkgs.nixFlakes} --extra-experimental-features nix-command --extra-experimental-features flakes $@";
+                  in
+                  pkgs.lib.mkForce (toString
+                    (pkgs.writeShellScript "precommit-mdsh" ''
+                      # This allows running nix commands in mdsh preprocessor inside nix flake check
+                      export PATH=''${PATH}:${nixFlakeWrapper}/bin
+
+                      for file in $(echo "$@"); do
+                        ${config.pre-commit.settings.tools.mdsh}/bin/mdsh -i "$file"
+                      done
+                    ''));
               };
               settings = {
                 deadnix.edit = true;
@@ -138,3 +151,4 @@
       }
     );
 }
+
