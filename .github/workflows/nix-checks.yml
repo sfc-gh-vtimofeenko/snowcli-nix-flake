@@ -1,0 +1,24 @@
+name: "Nix-related checks"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  nix-checks:
+    strategy:
+      matrix:
+        snowcliVer: ["1x", "2x"]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: DeterminateSystems/nix-installer-action@main
+    - uses: DeterminateSystems/magic-nix-cache-action@main
+    - name: "Run nix flake check"
+      run: nix flake check
+    - name: "Build Snowcli {{ matrix.snowcliVer }}"
+      run: nix build .#snowcli-{{ matrix.snowcliVer }}
+    - name: "Run sample Snowcli command"
+      run: nix run .#snowcli-{{ matrix.snowcliVer }} -- --version
