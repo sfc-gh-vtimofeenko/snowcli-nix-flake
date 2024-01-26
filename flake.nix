@@ -64,24 +64,24 @@
           }: {
             packages =
               let
-                mkSnowpark = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
+                mkSnowflakeConnector = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
                 mkSnowcli = { src, version, snowflakeConnectorPkg }: pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
-                snowpark-for-snowcli-1x = mkSnowpark { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
-                snowpark-for-snowcli-2x = mkSnowpark { src = inputs.snowflake-connector-python-2x; version = "3.6.0"; };
+                snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
+                snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.6.0"; };
                 snowcli-1x = mkSnowcli {
                   src = inputs.snowcli-src-1x;
                   version = "1.2.4";
-                  snowflakeConnectorPkg = snowpark-for-snowcli-1x;
+                  snowflakeConnectorPkg = snowflake-connector-for-snowcli-1x;
                 };
                 snowcli-2x = mkSnowcli {
                   src = inputs.snowcli-src-2x;
                   version = "2.0.0-dev";
-                  snowflakeConnectorPkg = snowpark-for-snowcli-2x;
+                  snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
               in
               {
-                inherit snowpark-for-snowcli-1x snowpark-for-snowcli-2x snowcli-2x snowcli-1x;
+                inherit snowflake-connector-for-snowcli-1x snowflake-connector-for-snowcli-2x snowcli-2x snowcli-1x;
 
                 default = snowcli-2x;
               };
