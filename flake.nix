@@ -127,7 +127,7 @@
               packages = [
                 config.pre-commit.settings.package
                 config.treefmt.build.wrapper
-                pkgs.mdsh
+                config.pre-commit.settings.tools.mdsh
               ];
             };
           };
