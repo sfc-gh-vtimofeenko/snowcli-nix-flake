@@ -96,9 +96,28 @@ TOML value
 
 <!-- END mdsh -->
 
-## With .envrc
+## With environment variables
 
-TODO
+If using environment variables to manage per-project Snowflake authentication, `snow` can be wrapped with an in-line config file to isolate the per-project configuration from the rest of the system.
+
+Wrapper could be defined like this:
+
+```nix
+{
+  snowcliWrapped = pkgs.writeShellScript "snow"
+    ''
+      ${lib.getExe snowCli} --config-file <(cat<<EOF
+      [connections]
+      [connections.dev] # DEFAULT connection name is this
+      account = "$SF_ACCOUNT"
+      user = "$SF_USER"
+      database = "$SF_DB"
+      schema = "$SF_SCHEMA"
+      password = "$SF_PASSWORD"
+      EOF
+      )'';
+}
+```
 
 # Development
 
