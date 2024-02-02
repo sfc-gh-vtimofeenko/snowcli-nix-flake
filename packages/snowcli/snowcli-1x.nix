@@ -20,7 +20,6 @@ import ./mkSnowcli.nix {
     else
       src';
   inherit python3 version lib;
-  patchFile = ./pyproject-1x.patch;
   snowflakeConnectorPkg = callPackage ../snowflake-connector-python/for-snowcli-1x.nix { inherit python3 fetchFromGitHub; };
 
 }
