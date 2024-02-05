@@ -3,7 +3,7 @@
 , fetchFromGitHub
 }:
 let
-  version = "3.6.0";
+  version = "3.7.0";
 in
 import ./mkSnowflakeConnectorPython.nix {
   inherit python3 version;
