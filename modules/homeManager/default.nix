@@ -35,6 +35,8 @@ in
       description = lib.mdDoc ''
         Snowcli configuration.
 
+        This value is copied to the Nix store in plaintext, so consider using env variables for secrets.
+
         *NOTE*: `connection.dev` is used as the default connection by Snowcli.
 
         See [doc](https://github.com/Snowflake-Labs/snowcli) for more information.
