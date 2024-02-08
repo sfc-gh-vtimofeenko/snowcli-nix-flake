@@ -121,6 +121,11 @@ Wrapper could be defined like this:
 }
 ```
 
+# Limitations
+
+- `snow snowpark init` copies the skeleton directory from Nix store, so the default permissions on the resulting project are read-only. To workaround run `chmod -R a+w ./<PROJECT_DIR>`. Then, to update the timestamps on the files: `find . -exec touch {} +`
+
 # Development
 
 TODO
+
