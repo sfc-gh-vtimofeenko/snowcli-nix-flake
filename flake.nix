@@ -56,8 +56,8 @@
         perSystem =
           { config
           , pkgs
+          , self'
             /* These inputs are unused in the template, but might be useful later */
-            # , self'
             # , inputs'
             # , system
           , ...
@@ -86,6 +86,28 @@
                 default = snowcli-2x;
               };
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
+
+            checks."check-version-works" =
+              if pkgs.stdenv.isLinux then
+                pkgs.testers.runNixOSTest
+                  {
+                    name = "check-version-output";
+
+                    nodes.machine1 = {
+                      environment.systemPackages = [ self'.packages.snowcli-2x ];
+                    };
+
+                    testScript =
+                      # python
+                      ''
+                        start_all()
+
+                        command, exit_code = "snow --version", 1
+
+                        assert machine1.execute(command)[0] == exit_code, f"'{command}' did not exit with code {exit_code}"
+                      '';
+
+                  } else pkgs.hello;
 
             /* Development configuration */
             apps.renderHMDoc = import ./apps/renderHMDocs { inherit self pkgs; };
