@@ -102,7 +102,7 @@
                       ''
                         start_all()
 
-                        command, exit_code = "snow --version", 1
+                        command, exit_code = "snow --version", 0
 
                         assert machine1.execute(command)[0] == exit_code, f"'{command}' did not exit with code {exit_code}"
                       '';
