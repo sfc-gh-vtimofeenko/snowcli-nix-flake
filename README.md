@@ -69,7 +69,7 @@ Snowcli configuration\.
 
 This value is copied to the Nix store in plaintext, so consider using env variables for secrets\.
 
-*NOTE*: ` connection.dev ` is used as the default connection by Snowcli\.
+*NOTE*: ` connection.default ` is used as the default connection by Snowcli\.
 
 See [doc](https://github\.com/Snowflake-Labs/snowcli) for more information\.
 
@@ -85,7 +85,7 @@ TOML value
 ```
 {
   connections = {
-    dev = {
+    default = {
       account = "account_identifier";
       authenticator = "externalbrowser";
       database = "some_database";
@@ -110,7 +110,7 @@ Wrapper could be defined like this:
     ''
       ${lib.getExe snowCli} --config-file <(cat<<EOF
       [connections]
-      [connections.dev] # DEFAULT connection name is this
+      [connections.default]
       account = "$SF_ACCOUNT"
       user = "$SF_USER"
       database = "$SF_DB"

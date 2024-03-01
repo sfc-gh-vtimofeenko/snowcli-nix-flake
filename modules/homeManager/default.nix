@@ -25,7 +25,7 @@ in
         freeformType = settingsFormat.type;
       };
       example = {
-        connections.dev = {
+        connections.default = {
           account = "account_identifier";
           user = "username";
           database = "some_database";
@@ -37,7 +37,7 @@ in
 
         This value is copied to the Nix store in plaintext, so consider using env variables for secrets.
 
-        *NOTE*: `connection.dev` is used as the default connection by Snowcli.
+        *NOTE*: `connection.default` is used as the default connection by Snowcli.
 
         See [doc](https://github.com/Snowflake-Labs/snowcli) for more information.
       '';
