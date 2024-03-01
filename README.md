@@ -117,7 +117,7 @@ Wrapper could be defined like this:
       schema = "$SF_SCHEMA"
       password = "$SF_PASSWORD"
       EOF
-      )'';
+      ) $@''; # NOTE: '$@' allows passing all subsequent arguments to the wrapped snowcli
 }
 ```
 
