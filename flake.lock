@@ -209,15 +209,15 @@
       "locked": {
         "lastModified": 1704728099,
         "narHash": "sha256-ahUPDcf1Ql97IQSgalAUIZo2U2MiKxNPn0pKvDDQIu0=",
-        "owner": "Snowflake-Labs",
-        "repo": "snowcli",
+        "owner": "snowflakedb",
+        "repo": "snowflake-cli",
         "rev": "2f606973ceeaf5a689d9449bfc12cf43e0005a45",
         "type": "github"
       },
       "original": {
-        "owner": "Snowflake-Labs",
+        "owner": "snowflakedb",
         "ref": "v1.2.4",
-        "repo": "snowcli",
+        "repo": "snowflake-cli",
         "type": "github"
       }
     },
@@ -226,15 +226,15 @@
       "locked": {
         "lastModified": 1707138985,
         "narHash": "sha256-lAHQrYN+L9cK0rpBVYvCylVjzpayE1KTKPwZQ0zvR6U=",
-        "owner": "Snowflake-Labs",
-        "repo": "snowcli",
+        "owner": "snowflakedb",
+        "repo": "snowflake-cli",
         "rev": "ac082923d81fdfff6eefcd760e583c51d107fd6c",
         "type": "github"
       },
       "original": {
-        "owner": "Snowflake-Labs",
+        "owner": "snowflakedb",
         "ref": "v2.0.0",
-        "repo": "snowcli",
+        "repo": "snowflake-cli",
         "type": "github"
       }
     },

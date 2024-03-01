@@ -7,11 +7,11 @@
     nixpkgs.follows = "nixpkgs-stable";
 
     snowcli-src-1x = {
-      url = "github:Snowflake-Labs/snowcli?ref=v1.2.4"; # Pins to last stable version tag by hand
+      url = "github:snowflakedb/snowflake-cli?ref=v1.2.4"; # Pins to last stable version tag by hand
       flake = false;
     };
     snowcli-src-2x = {
-      url = "github:Snowflake-Labs/snowcli?ref=v2.0.0"; # Pins to the latest 2.x version
+      url = "github:snowflakedb/snowflake-cli?ref=v2.0.0"; # Pins to the latest 2.x version
       flake = false;
     };
     snowflake-connector-python-1x = {
