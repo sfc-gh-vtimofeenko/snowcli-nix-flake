@@ -224,16 +224,16 @@
     "snowcli-src-2x": {
       "flake": false,
       "locked": {
-        "lastModified": 1709557773,
-        "narHash": "sha256-oRiWjqZ6q+Hqa22qvHP7BivMroPVNbCtTRfnIEbMSCg=",
+        "lastModified": 1709819551,
+        "narHash": "sha256-0sD8WdSc7hiClKf8cr34G6yRumSF2tYqzrP3yscYR84=",
         "owner": "snowflakedb",
         "repo": "snowflake-cli",
-        "rev": "b7efe1fe9c0925b95ba214e233b18924fa0404b3",
+        "rev": "f0f7d4bd706b92e1c4556d25bf4015cff30588ed",
         "type": "github"
       },
       "original": {
         "owner": "snowflakedb",
-        "ref": "v2.1.0-rc1",
+        "ref": "v2.1.0",
         "repo": "snowflake-cli",
         "type": "github"
       }
