@@ -14,12 +14,20 @@
       url = "github:snowflakedb/snowflake-cli?ref=v2.1.0"; # Pins to the latest 2.x version
       flake = false;
     };
+    snowcli-src-live = {
+      url = "github:snowflakedb/snowflake-cli"; # Follows the latest commit
+      flake = false;
+    };
     snowflake-connector-python-1x = {
       url = "github:snowflakedb/snowflake-connector-python?ref=v3.2.0";
       flake = false;
     };
     snowflake-connector-python-2x = {
       url = "github:snowflakedb/snowflake-connector-python?ref=v3.7.0";
+      flake = false;
+    };
+    snowflake-connector-python-live = {
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.7.1";
       flake = false;
     };
 
@@ -69,6 +77,7 @@
 
                 snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
                 snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.7.0"; };
+                snowflake-connector-for-snowcli-live = mkSnowflakeConnector { src = inputs.snowflake-connector-python-live; version = "3.7.1"; };
                 snowcli-1x = mkSnowcli {
                   src = inputs.snowcli-src-1x;
                   version = "1.2.4";
@@ -79,9 +88,14 @@
                   version = "2.1.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
+                snowcli-2x-live = mkSnowcli {
+                  src = inputs.snowcli-src-live;
+                  version = "2.x-live";
+                  snowflakeConnectorPkg = snowflake-connector-for-snowcli-live;
+                };
               in
               {
-                inherit snowflake-connector-for-snowcli-1x snowflake-connector-for-snowcli-2x snowcli-2x snowcli-1x;
+                inherit snowflake-connector-for-snowcli-1x snowflake-connector-for-snowcli-2x snowflake-connector-for-snowcli-live snowcli-2x snowcli-1x snowcli-2x-live;
 
                 default = snowcli-2x;
               };

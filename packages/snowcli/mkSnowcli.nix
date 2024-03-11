@@ -34,6 +34,7 @@ python3.pkgs.buildPythonApplication {
         pluggy
         pyyaml
         pythonRelaxDepsHook
+        pydantic
         ;
     }
   ++ [ snowflakeConnectorPkg ]; /* Pass specific version of snowflake connector */
@@ -52,5 +53,6 @@ python3.pkgs.buildPythonApplication {
     "typer"
     "urllib3"
     "GitPython"
+    "pydantic"
   ];
 }
