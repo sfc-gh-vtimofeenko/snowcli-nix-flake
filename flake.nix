@@ -76,7 +76,7 @@
                 };
                 snowcli-2x = mkSnowcli {
                   src = inputs.snowcli-src-2x;
-                  version = "2.0.0";
+                  version = "2.1.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
               in
