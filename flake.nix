@@ -66,18 +66,43 @@
           , pkgs
           , self'
             /* These inputs are unused in the template, but might be useful later */
-            # , inputs'
+          , inputs'
             # , system
           , ...
           }: {
             packages =
               let
+                pkgs-unstable = inputs'.nixpkgs-unstable.legacyPackages;
+
                 mkSnowflakeConnector = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
                 mkSnowcli = { src, version, snowflakeConnectorPkg }: pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
+                /**
+                Function to create Snowpark connector package
+
+                Compared to non-live version, it pins the packages to unstable
+                */
+                mkSnowflakeConnector-live = { src, version }:
+                  let
+                    pkgs = pkgs-unstable;
+                  in
+                  pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
+
+                /**
+                Function to create snowcli package
+
+                Compared to non-live version, it pins the packages to unstable
+                */
+                mkSnowcli-live = { src, version, snowflakeConnectorPkg }:
+                  let
+                    pkgs = pkgs-unstable;
+                  in
+                  pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
+
                 snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
                 snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.7.0"; };
-                snowflake-connector-for-snowcli-live = mkSnowflakeConnector { src = inputs.snowflake-connector-python-live; version = "3.7.1"; };
+                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.7.1"; };
+
                 snowcli-1x = mkSnowcli {
                   src = inputs.snowcli-src-1x;
                   version = "1.2.4";
@@ -88,7 +113,7 @@
                   version = "2.1.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
-                snowcli-2x-live = mkSnowcli {
+                snowcli-2x-live = mkSnowcli-live {
                   src = inputs.snowcli-src-live;
                   version = "2.x-live";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-live;

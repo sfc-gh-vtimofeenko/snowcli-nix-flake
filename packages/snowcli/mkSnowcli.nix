@@ -15,7 +15,7 @@ python3.pkgs.buildPythonApplication {
     license = lib.licenses.asl20;
   };
 
-  nativeBuildInputs = builtins.attrValues { inherit (python3.pkgs) hatch-vcs hatchling; };
+  nativeBuildInputs = builtins.attrValues { inherit (python3.pkgs) hatch-vcs hatchling pythonRelaxDepsHook; };
 
   propagatedBuildInputs = builtins.attrValues
     {
@@ -33,26 +33,11 @@ python3.pkgs.buildPythonApplication {
         gitpython
         pluggy
         pyyaml
-        pythonRelaxDepsHook
         pydantic
         ;
     }
   ++ [ snowflakeConnectorPkg ]; /* Pass specific version of snowflake connector */
 
-  pythonRelaxDeps = [
-    "coverage"
-    "jinja2"
-    "pluggy"
-    "PyYAML"
-    "rich"
-    "requests"
-    "requirements-parser"
-    "snowflake-connector-python"
-    "strictyaml"
-    "tomlkit"
-    "typer"
-    "urllib3"
-    "GitPython"
-    "pydantic"
-  ];
+  pythonRelaxDeps = true;
+  dontCheckRuntimeDeps = true;
 }
