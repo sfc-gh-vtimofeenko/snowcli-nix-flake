@@ -11,7 +11,7 @@
       flake = false;
     };
     snowcli-src-2x = {
-      url = "github:snowflakedb/snowflake-cli?ref=v2.1.1"; # Pins to the latest 2.x version
+      url = "github:snowflakedb/snowflake-cli?ref=v2.1.2"; # Pins to the latest 2.x version
       flake = false;
     };
     snowcli-src-live = {
@@ -110,7 +110,7 @@
                 };
                 snowcli-2x = mkSnowcli {
                   src = inputs.snowcli-src-2x;
-                  version = "2.1.0";
+                  version = "2.1.2";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
                 snowcli-2x-live = mkSnowcli-live {

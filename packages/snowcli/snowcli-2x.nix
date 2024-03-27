@@ -5,7 +5,7 @@
 , lib
 }:
 let
-  version = "2.1.0";
+  version = "2.1.2";
 in
 import ./mkSnowcli.nix {
   src =

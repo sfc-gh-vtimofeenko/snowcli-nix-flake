@@ -57,7 +57,7 @@ package
 
 
 *Default:*
-` <derivation snowcli-2.0.0> `
+` <derivation snowcli-2.1.2> `
 
 
 
