@@ -39,7 +39,7 @@ in
 
         *NOTE*: `connection.default` is used as the default connection by Snowcli.
 
-        See [doc](https://github.com/Snowflake-Labs/snowcli) for more information.
+        See [doc](https://github.com/snowflakedb/snowcli) for more information.
       '';
     };
   };
