@@ -1,6 +1,6 @@
 ---
 name: "Nix-related checks"
-on:
+"on":
   push:
     branches:
       - main
