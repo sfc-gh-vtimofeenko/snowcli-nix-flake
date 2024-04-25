@@ -192,7 +192,7 @@
         "devshell": "devshell",
         "flake-parts": "flake-parts",
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs-unstable"
         ],
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
