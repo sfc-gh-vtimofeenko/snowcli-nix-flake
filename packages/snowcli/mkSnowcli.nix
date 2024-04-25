@@ -20,19 +20,18 @@ python3.pkgs.buildPythonApplication {
   propagatedBuildInputs = builtins.attrValues
     {
       inherit (python3.pkgs)
-        coverage
         jinja2
+        pluggy
+        pyyaml
         rich
         requests
         requirements-parser
-        strictyaml
+        setuptools
         tomlkit
         typer
-        chardet# needed by snowflake-connector-python
         urllib3
+        chardet# needed by snowflake-connector-python
         gitpython
-        pluggy
-        pyyaml
         pydantic
         ;
     }
