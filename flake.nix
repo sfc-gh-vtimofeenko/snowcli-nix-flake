@@ -169,18 +169,22 @@
 
             pre-commit.settings = {
               hooks = {
-                treefmt.enable = true;
-                deadnix.enable = true;
-                statix.enable = true;
-                yamllint.enable = true;
-              };
-              settings = {
-                deadnix.edit = true;
-                statix = {
-                  ignore = [ ".direnv/" ];
-                  format = "stderr";
+                treefmt = {
+                  enable = true;
+                  package = config.treefmt.build.wrapper;
                 };
-                treefmt.package = config.treefmt.build.wrapper;
+                deadnix = {
+                  enable = true;
+                  settings.edit = true;
+                };
+                statix = {
+                  enable = true;
+                  settings = {
+                    ignore = [ ".direnv/" ];
+                    format = "stderr";
+                  };
+                };
+                yamllint.enable = true;
               };
             };
 
