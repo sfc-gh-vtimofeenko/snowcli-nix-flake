@@ -129,13 +129,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable": {
+    "nixpkgs-oldstable": {
       "locked": {
-        "lastModified": 1713995372,
-        "narHash": "sha256-fFE3M0vCoiSwCX02z8VF58jXFRj9enYUSTqjyHAjrds=",
+        "lastModified": 1717530100,
+        "narHash": "sha256-b4Dn+PnrZoVZ/BoR9JN2fTxXxplJrAsdSUIePf4Cacs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dd37924974b9202f8226ed5d74a252a9785aedf8",
+        "rev": "a2e1d0414259a144ebdc048408a807e69e0565af",
         "type": "github"
       },
       "original": {
@@ -170,7 +170,7 @@
           "nixpkgs-unstable"
         ],
         "nixpkgs-stable": [
-          "nixpkgs-stable"
+          "nixpkgs-oldstable"
         ]
       },
       "locked": {
@@ -194,7 +194,7 @@
         "nixpkgs": [
           "nixpkgs-unstable"
         ],
-        "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgs-oldstable": "nixpkgs-oldstable",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "snowcli-src-2x": "snowcli-src-2x",
