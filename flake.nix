@@ -12,7 +12,7 @@
     # };
 
     snowcli-src-2x = {
-      url = "github:snowflakedb/snowflake-cli?ref=v2.4.1"; # Pins to the latest 2.x version
+      url = "github:snowflakedb/snowflake-cli?ref=v2.5.0"; # Pins to the latest 2.x version
       flake = false;
     };
     snowcli-src-live = {
@@ -26,11 +26,11 @@
     # };
 
     snowflake-connector-python-2x = {
-      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.0";
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.1";
       flake = false;
     };
     snowflake-connector-python-live = {
-      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.0";
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.1";
       flake = false;
     };
 
@@ -103,8 +103,8 @@
                   pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
                 # snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
-                snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.10.0"; };
-                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.10.0"; };
+                snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.10.1"; };
+                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.10.1"; };
 
                 # snowcli-1x = mkSnowcli {
                 #   src = inputs.snowcli-src-1x;
@@ -113,7 +113,7 @@
                 # };
                 snowcli-2x = mkSnowcli {
                   src = inputs.snowcli-src-2x;
-                  version = "2.4.1";
+                  version = "2.5.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
                 snowcli-2x-live = mkSnowcli-live {

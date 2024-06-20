@@ -182,16 +182,16 @@
     "snowcli-src-2x": {
       "flake": false,
       "locked": {
-        "lastModified": 1718182918,
-        "narHash": "sha256-uAO9G38rjhiJRZtglZN+zhV1tThn3IiNO3/iaI6lWIQ=",
+        "lastModified": 1718892707,
+        "narHash": "sha256-v7LTePj70bIbcnlEc+eEH0xCVAbMnJBerBmngIEXRIY=",
         "owner": "snowflakedb",
         "repo": "snowflake-cli",
-        "rev": "007832cb9d85326ccfbe61eb7d5f63fbd5544284",
+        "rev": "e9192e705226e3bef3089eb1c379361dca97b155",
         "type": "github"
       },
       "original": {
         "owner": "snowflakedb",
-        "ref": "v2.4.1",
+        "ref": "v2.5.0",
         "repo": "snowflake-cli",
         "type": "github"
       }
@@ -215,16 +215,16 @@
     "snowflake-connector-python-2x": {
       "flake": false,
       "locked": {
-        "lastModified": 1714427976,
-        "narHash": "sha256-/bmCPWRr/oh/4WvN0L5ylkOPC3350S0ZXSww+NRuUM8=",
+        "lastModified": 1716310751,
+        "narHash": "sha256-Ah/mvXFVHZ51j1gml4SIj3RVLpyAF2xYvRNrVq0ge3Y=",
         "owner": "snowflakedb",
         "repo": "snowflake-connector-python",
-        "rev": "8cdca67faf3fa2a6d31a545d78326b76c31c4c64",
+        "rev": "29d379352434f3b21b42b0545b05c11eb106d112",
         "type": "github"
       },
       "original": {
         "owner": "snowflakedb",
-        "ref": "v3.10.0",
+        "ref": "v3.10.1",
         "repo": "snowflake-connector-python",
         "type": "github"
       }
@@ -232,16 +232,16 @@
     "snowflake-connector-python-live": {
       "flake": false,
       "locked": {
-        "lastModified": 1714427976,
-        "narHash": "sha256-/bmCPWRr/oh/4WvN0L5ylkOPC3350S0ZXSww+NRuUM8=",
+        "lastModified": 1716310751,
+        "narHash": "sha256-Ah/mvXFVHZ51j1gml4SIj3RVLpyAF2xYvRNrVq0ge3Y=",
         "owner": "snowflakedb",
         "repo": "snowflake-connector-python",
-        "rev": "8cdca67faf3fa2a6d31a545d78326b76c31c4c64",
+        "rev": "29d379352434f3b21b42b0545b05c11eb106d112",
         "type": "github"
       },
       "original": {
         "owner": "snowflakedb",
-        "ref": "v3.10.0",
+        "ref": "v3.10.1",
         "repo": "snowflake-connector-python",
         "type": "github"
       }
