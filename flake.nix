@@ -30,7 +30,7 @@
       flake = false;
     };
     snowflake-connector-python-live = {
-      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.1";
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.11.0";
       flake = false;
     };
 
@@ -104,7 +104,7 @@
 
                 # snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
                 snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.10.1"; };
-                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.10.1"; };
+                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.11.0"; };
 
                 # snowcli-1x = mkSnowcli {
                 #   src = inputs.snowcli-src-1x;

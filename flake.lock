@@ -232,16 +232,16 @@
     "snowflake-connector-python-live": {
       "flake": false,
       "locked": {
-        "lastModified": 1716310751,
-        "narHash": "sha256-Ah/mvXFVHZ51j1gml4SIj3RVLpyAF2xYvRNrVq0ge3Y=",
+        "lastModified": 1718353427,
+        "narHash": "sha256-P6+OZPRhzzxnVmVU/+AGggKwVmGnd2TYctqdllAtM4Y=",
         "owner": "snowflakedb",
         "repo": "snowflake-connector-python",
-        "rev": "29d379352434f3b21b42b0545b05c11eb106d112",
+        "rev": "3746237f0ba373e666a4023ecec07469e464dfb3",
         "type": "github"
       },
       "original": {
         "owner": "snowflakedb",
-        "ref": "v3.10.1",
+        "ref": "v3.11.0",
         "repo": "snowflake-connector-python",
         "type": "github"
       }
