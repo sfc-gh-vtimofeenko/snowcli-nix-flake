@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-oldstable.url = "github:NixOS/nixpkgs/nixos-23.11"; # As of Jun 5 2024 pre-commit-hooks still relies on 23.11, to be bumped later
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs.follows = "nixpkgs-unstable";
 
     # snowcli-src-1x = {
@@ -42,7 +42,7 @@
     pre-commit-hooks-nix = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.nixpkgs-stable.follows = "nixpkgs-oldstable";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
