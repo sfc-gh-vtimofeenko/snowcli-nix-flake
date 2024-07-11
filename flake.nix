@@ -12,7 +12,7 @@
     # };
 
     snowcli-src-2x = {
-      url = "github:snowflakedb/snowflake-cli?ref=v2.5.0"; # Pins to the latest 2.x version
+      url = "github:snowflakedb/snowflake-cli?ref=v2.6.0"; # Pins to the latest 2.x version
       flake = false;
     };
     snowcli-src-live = {
