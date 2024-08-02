@@ -12,7 +12,7 @@
     # };
 
     snowcli-src-2x = {
-      url = "github:snowflakedb/snowflake-cli?ref=v2.6.1"; # Pins to the latest 2.x version
+      url = "github:snowflakedb/snowflake-cli?ref=v2.7.0"; # Pins to the latest 2.x version
       flake = false;
     };
     snowcli-src-live = {
@@ -26,7 +26,7 @@
     # };
 
     snowflake-connector-python-2x = {
-      url = "github:snowflakedb/snowflake-connector-python?ref=v3.10.1";
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.12.0";
       flake = false;
     };
     snowflake-connector-python-live = {
@@ -113,7 +113,7 @@
                 # };
                 snowcli-2x = mkSnowcli {
                   src = inputs.snowcli-src-2x;
-                  version = "2.6.1";
+                  version = "2.7.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
                 snowcli-2x-live = mkSnowcli-live {
