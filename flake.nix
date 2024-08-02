@@ -103,7 +103,7 @@
                   pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
                 # snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
-                snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.10.1"; };
+                snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.12.0"; };
                 snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.11.0"; };
 
                 # snowcli-1x = mkSnowcli {
