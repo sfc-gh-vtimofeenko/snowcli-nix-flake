@@ -30,7 +30,7 @@
       flake = false;
     };
     snowflake-connector-python-live = {
-      url = "github:snowflakedb/snowflake-connector-python?ref=v3.11.0";
+      url = "github:snowflakedb/snowflake-connector-python?ref=v3.12.0";
       flake = false;
     };
 
@@ -104,7 +104,7 @@
 
                 # snowflake-connector-for-snowcli-1x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-1x; version = "3.2.0"; };
                 snowflake-connector-for-snowcli-2x = mkSnowflakeConnector { src = inputs.snowflake-connector-python-2x; version = "3.12.0"; };
-                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.11.0"; };
+                snowflake-connector-for-snowcli-live = mkSnowflakeConnector-live { src = inputs.snowflake-connector-python-live; version = "3.12.0"; };
 
                 # snowcli-1x = mkSnowcli {
                 #   src = inputs.snowcli-src-1x;
@@ -116,14 +116,14 @@
                   version = "2.8.0";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-2x;
                 };
-                snowcli-2x-live = mkSnowcli-live {
+                snowcli-live = mkSnowcli-live {
                   src = inputs.snowcli-src-live;
-                  version = "2.x-live";
+                  version = "3.x-live";
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-live;
                 };
               in
               {
-                inherit snowflake-connector-for-snowcli-2x snowflake-connector-for-snowcli-live snowcli-2x snowcli-2x-live;
+                inherit snowflake-connector-for-snowcli-2x snowflake-connector-for-snowcli-live snowcli-2x snowcli-live;
 
                 default = snowcli-2x;
               };
