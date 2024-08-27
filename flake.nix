@@ -129,27 +129,11 @@
               };
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
-            checks."check-version-works" =
-              if pkgs.stdenv.isLinux then
-                pkgs.testers.runNixOSTest
-                  {
-                    name = "check-version-output";
-
-                    nodes.machine1 = {
-                      environment.systemPackages = [ self'.packages.snowcli-2x ];
-                    };
-
-                    testScript =
-                      # python
-                      ''
-                        start_all()
-
-                        command, exit_code = "snow --version", 0
-
-                        assert machine1.execute(command)[0] == exit_code, f"'{command}' did not exit with code {exit_code}"
-                      '';
-
-                  } else pkgs.hello;
+            checks."check-version-works" = pkgs.runCommand "check-version-works" { } ''
+              ${pkgs.lib.getExe self'.packages.default} --version || (echo "Version did not exit successfully" && exit 1)
+              # Derivation has to produce _some_ output
+              mkdir $out
+            '';
 
             /* Development configuration */
             apps.renderHMDoc = import ./apps/renderHMDocs { inherit self pkgs; };
