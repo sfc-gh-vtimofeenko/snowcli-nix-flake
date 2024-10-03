@@ -122,10 +122,12 @@
                   snowflakeConnectorPkg = snowflake-connector-for-snowcli-live;
                 };
               in
-              {
+              rec {
                 inherit snowflake-connector-for-snowcli-2x snowflake-connector-for-snowcli-live snowcli-2x snowcli-live;
 
-                default = snowcli-2x;
+                default = snowcli-3x;
+
+                snowcli-3x = pkgs-unstable.callPackage ./packages/snowcli/snowcli-3x.nix { };
               };
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
