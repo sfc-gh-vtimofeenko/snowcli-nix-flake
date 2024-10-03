@@ -1,5 +1,9 @@
 This is a Nix flake that provides [snowcli](https://github.com/snowflakedb/snowflake-cli) and Snowflake connector python packages that are pinned to a more recent version than what's typically available in nixpkgs.
 
+**NOTE**: snowflake-cli is being upstreamed to nixpkgs
+[#345810](https://github.com/NixOS/nixpkgs/pull/345810). Once that PR is closed,
+this repo will start raising deprecation warnings and will be eventually archived.
+
 # Usage
 
 Flake provides the `snowcli` packages and a `home-manager` module to configure snowcli in an environment.
