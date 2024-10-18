@@ -19,7 +19,7 @@ jobs:
   build-package:
     strategy:
       matrix:
-        snowcliVer: ["2x"]
+        snowcliVer: ["2x", "3x"]
 
     runs-on: ubuntu-latest
 
