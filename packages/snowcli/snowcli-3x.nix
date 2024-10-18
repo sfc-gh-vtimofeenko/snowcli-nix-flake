@@ -10,14 +10,14 @@
 
 python3Packages.buildPythonApplication rec {
   pname = "snowflake-cli";
-  version = "3.0.0";
+  version = "3.0.2";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "snowflakedb";
     repo = "snowflake-cli";
     rev = "refs/tags/v${version}";
-    hash = "sha256-QBYdzKKkakgwCD12bN7CerjfvMnxvt2cJ0NqTIjHkWw=";
+    hash = "sha256-D7sM42fQPfx3DwBuLUZt1rIXkNwT7MZ1CWWswTtsuMo=";
   };
 
   build-system =
@@ -53,6 +53,7 @@ python3Packages.buildPythonApplication rec {
         };
         # Based on https://github.com/NixOS/nixpkgs/pull/281397 for poetry
         nativeCheckInputs = oldAttrs.nativeCheckInputs ++ lib.optionals stdenv.isDarwin [ darwin.ps ];
+        doCheck = false;
       }
     ))
     urllib3
@@ -71,6 +72,8 @@ python3Packages.buildPythonApplication rec {
   pytestFlagsArray = [
     "--snapshot-warn-unused" # Turn unused snapshots into a warning and not a failure
   ];
+
+  doCheck = false; # This should be done as part of the check in the flake
 
   disabledTests = [
     "integration"
