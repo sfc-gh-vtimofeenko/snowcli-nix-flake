@@ -128,6 +128,7 @@
                 default = snowcli-3x;
 
                 snowcli-3x = pkgs-unstable.callPackage ./packages/snowcli/snowcli-3x.nix { };
+                snowcli-3x-rc = pkgs-unstable.callPackage ./packages/snowcli/snowcli-3x-rc.nix { };
               };
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
