@@ -67,6 +67,7 @@ python3Packages.buildPythonApplication rec {
     syrupy
     coverage
     pytest-randomly
+    pytest-factoryboy
   ];
 
   pytestFlagsArray = [
