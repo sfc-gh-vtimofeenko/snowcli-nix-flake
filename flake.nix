@@ -132,11 +132,21 @@
               };
             overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
-            checks."check-version-works" = pkgs.runCommand "check-version-works" { } ''
-              ${pkgs.lib.getExe self'.packages.default} --version || (echo "Version did not exit successfully" && exit 1)
-              # Derivation has to produce _some_ output
-              mkdir $out
-            '';
+            checks =
+              let
+                mkPkgForceCheck = pkg: pkg.overridePythonAttrs (_: { doCheck = true; });
+              in
+              {
+                "check-version-works" = pkgs.runCommand "check-version-works" { } ''
+                  ${pkgs.lib.getExe self'.packages.default} --version || (echo "Version did not exit successfully" && exit 1)
+                  # Derivation has to produce _some_ output
+                  mkdir $out
+                '';
+
+                # Snowcli checks are kinda slow. Better run it once by CI when pushing this flake out than to eval them every time it's installed
+                run-snowcli-3x-check = mkPkgForceCheck self'.packages.snowcli-3x;
+                run-snowcli-3x-rc-check = mkPkgForceCheck self'.packages.snowcli-3x-rc;
+              };
 
             /* Development configuration */
             apps.renderHMDoc = import ./apps/renderHMDocs { inherit self pkgs; };
