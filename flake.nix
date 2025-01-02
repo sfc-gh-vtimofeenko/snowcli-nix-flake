@@ -77,8 +77,10 @@
               let
                 pkgs-unstable = inputs'.nixpkgs-unstable.legacyPackages;
 
-                mkSnowflakeConnector = { src, version }: pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
-                mkSnowcli = { src, version, snowflakeConnectorPkg }: pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
+                archiveNotice = "This repository has been archived since snowflake-cli is in nixpkgs";
+
+                mkSnowflakeConnector = { src, version }: builtins.trace archiveNotice pkgs.callPackage ./packages/snowflake-connector-python/mkSnowflakeConnectorPython.nix { inherit (pkgs) python3; inherit src version; };
+                mkSnowcli = { src, version, snowflakeConnectorPkg }: builtins.trace archiveNotice pkgs.callPackage ./packages/snowcli/mkSnowcli.nix { inherit (pkgs) python3 lib; inherit src version snowflakeConnectorPkg; };
 
                 /**
                 Function to create Snowpark connector package
