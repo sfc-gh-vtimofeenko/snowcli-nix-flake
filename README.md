@@ -1,3 +1,7 @@
+> [!IMPORTANT]  
+> snowflake-cli is now in [nixpkgs][1]. The newer versions this program will be made available there going forward.
+
+
 This is a Nix flake that provides [snowcli](https://github.com/snowflakedb/snowflake-cli) and Snowflake connector python packages that are pinned to a more recent version than what's typically available in nixpkgs.
 
 **NOTE**: snowflake-cli is being upstreamed to nixpkgs
@@ -133,3 +137,4 @@ Wrapper could be defined like this:
 
 TODO
 
+[1]: https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=snowflake-cli
